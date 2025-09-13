@@ -1,5 +1,4 @@
-import Colors from "@/constants/Colors";
-import { useColorScheme } from "@/hooks/useColorScheme";
+import { useTheme } from "@/providers";
 import React from "react";
 import { Pressable } from "react-native";
 import AnimatedTabBarIcon from "./AnimatedTabBarIcon";
@@ -17,13 +16,10 @@ const TabBarButton = ({
   isFocused,
   routeName,
 }: TabBarButtonProps) => {
-  const colorScheme = useColorScheme();
-  // Simple inline approach - no config files, no type gymnastics
-  const renderIcon = () => {
-    const color = isFocused
-      ? Colors[colorScheme ?? "light"].tint
-      : Colors[colorScheme ?? "light"].tabIconDefault;
+  const { theme } = useTheme();
+  const color = isFocused ? theme.primary.main : theme.secondary[400];
 
+  const renderIcon = () => {
     switch (routeName) {
       case "home":
         return (

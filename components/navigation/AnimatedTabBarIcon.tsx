@@ -27,6 +27,7 @@ export default function AnimatedTabBarIcon<T extends IconLibrary>({
   const colorScheme = useColorScheme();
   const scale = useSharedValue(0);
   const iconScale = useSharedValue(1);
+
   useEffect(() => {
     if (focused) {
       scale.value = withTiming(1, {
