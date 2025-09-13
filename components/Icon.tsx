@@ -18,7 +18,6 @@ import {
 import React from 'react';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
-// Define the icon library types
 export type IconLibrary =
   | 'AntDesign'
   | 'Entypo'
@@ -36,7 +35,6 @@ export type IconLibrary =
   | 'SimpleLineIcons'
   | 'Zocial';
 
-// Icon name types for each library
 export type IconName<T extends IconLibrary> = T extends 'AntDesign'
   ? keyof typeof AntDesign.glyphMap
   : T extends 'Entypo'
@@ -69,7 +67,6 @@ export type IconName<T extends IconLibrary> = T extends 'AntDesign'
   ? keyof typeof Zocial.glyphMap
   : string;
 
-// Props for the Icon component
 export interface IconProps<T extends IconLibrary = IconLibrary> {
   library: T;
   name: IconName<T>;
@@ -79,7 +76,6 @@ export interface IconProps<T extends IconLibrary = IconLibrary> {
   containerStyle?: StyleProp<ViewStyle>;
 }
 
-// Map of icon libraries to their components
 const IconComponents = {
   AntDesign,
   Entypo,
@@ -112,7 +108,6 @@ export default function Icon<T extends IconLibrary>({
   size = 24,
   color,
   style,
-  containerStyle,
 }: IconProps<T>) {
   const IconComponent = IconComponents[library];
 
@@ -164,7 +159,6 @@ export const AntIcon = (props: Omit<IconProps<'AntDesign'>, 'library'>) => (
   <Icon library="AntDesign" {...props} />
 );
 
-// Export all icon libraries for direct use if needed
 export {
     AntDesign,
     Entypo,
@@ -182,3 +176,4 @@ export {
     SimpleLineIcons,
     Zocial
 };
+

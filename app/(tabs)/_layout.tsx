@@ -1,76 +1,44 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import React from "react";
 
-import Icon, { IconLibrary, IconName } from '@/components/Icon';
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Flexible TabBarIcon using our new Icon component
-function TabBarIcon<T extends IconLibrary>({ 
-  library, 
-  name, 
-  color 
-}: { 
-  library: T; 
-  name: IconName<T>; 
-  color: string; 
-}) {
-  return (
-    <Icon 
-      library={library} 
-      name={name} 
-      size={28} 
-      color={color} 
-      style={{ marginBottom: -3 }} 
-    />
-  );
-}
+import TabBar from "@/components/navigation/TabBar";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
+      tabBar={(props) => <TabBar {...props} />}
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: false, // We'll handle headers in individual stack navigators
-      }}>
+        headerShown: false,
+      }}
+    >
       <Tabs.Screen
         name="home"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon library="FontAwesome" name="home" color={color} />
-          ),
+          title: "Home",
         }}
       />
       <Tabs.Screen
         name="workout"
         options={{
-          title: 'Workout',
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon library="MaterialIcons" name="fitness-center" color={color} />
-          ),
+          title: "Workout",
+        }}
+      />
+      <Tabs.Screen
+        name="nutrition"
+        options={{
+          title: "Nutrition",
         }}
       />
       <Tabs.Screen
         name="statistics"
         options={{
-          title: 'Statistics',
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon library="Ionicons" name="stats-chart" color={color} />
-          ),
+          title: "Statistics",
         }}
       />
       <Tabs.Screen
         name="achievements"
         options={{
-          title: 'Achievements',
-          tabBarIcon: ({ color }) => (
-            <TabBarIcon library="FontAwesome" name="trophy" color={color} />
-          ),
+          title: "Achievements",
         }}
       />
     </Tabs>

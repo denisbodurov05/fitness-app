@@ -1,6 +1,6 @@
 import { ScrollView, StyleSheet } from "react-native";
 
-export default function HomeScreen() {
+export default function NutritionScreen() {
   return <ScrollView style={styles.container}></ScrollView>;
 }
 
