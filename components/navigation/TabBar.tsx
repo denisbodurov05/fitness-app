@@ -1,20 +1,14 @@
-import Colors from "@/constants/Colors";
-import { useColorScheme } from "@/hooks/useColorScheme";
+import { useTheme } from "@/providers";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import TabBarButton from "./TabBarButton";
 
 const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
-  const colorScheme = useColorScheme();
+  const { theme } = useTheme();
 
   return (
-    <View
-      style={[
-        styles.tabbar,
-        { backgroundColor: Colors[colorScheme ?? "light"].background },
-      ]}
-    >
+    <View style={[styles.tabbar, { backgroundColor: theme.secondary.lighter }]}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
 
@@ -62,7 +56,7 @@ const styles = StyleSheet.create({
     marginHorizontal: "5%",
     width: "90%",
     height: 70,
-    elevation: 0.5,
+    elevation: 1,
     paddingHorizontal: 8,
     borderRadius: 30,
     flexDirection: "row",
