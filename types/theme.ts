@@ -37,8 +37,6 @@ export interface Typography {
   overline: TypographyStyle;
 }
 
-
-
 export interface PrimaryColorPalette {
   lighter: string;
   100: string;

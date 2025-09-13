@@ -1,4 +1,3 @@
-import { useTheme } from "@/providers";
 import React from "react";
 import { Pressable } from "react-native";
 import AnimatedTabBarIcon from "./AnimatedTabBarIcon";
@@ -16,11 +15,6 @@ const TabBarButton = ({
   isFocused,
   routeName,
 }: TabBarButtonProps) => {
-  const { theme } = useTheme();
-  const color = isFocused
-    ? theme.palette.primary.main
-    : theme.palette.secondary[400];
-
   const renderIcon = () => {
     switch (routeName) {
       case "home":
@@ -28,7 +22,6 @@ const TabBarButton = ({
           <AnimatedTabBarIcon
             library="Octicons"
             name="home-fill"
-            color={color}
             focused={isFocused}
           />
         );
@@ -37,7 +30,6 @@ const TabBarButton = ({
           <AnimatedTabBarIcon
             library="MaterialIcons"
             name="fitness-center"
-            color={color}
             focused={isFocused}
           />
         );
@@ -46,7 +38,6 @@ const TabBarButton = ({
           <AnimatedTabBarIcon
             library="MaterialCommunityIcons"
             name="food-apple"
-            color={color}
             focused={isFocused}
           />
         );
@@ -55,7 +46,6 @@ const TabBarButton = ({
           <AnimatedTabBarIcon
             library="FontAwesome6"
             name="chart-simple"
-            color={color}
             focused={isFocused}
           />
         );
@@ -64,7 +54,6 @@ const TabBarButton = ({
           <AnimatedTabBarIcon
             library="FontAwesome6"
             name="medal"
-            color={color}
             focused={isFocused}
           />
         );
@@ -73,7 +62,6 @@ const TabBarButton = ({
           <AnimatedTabBarIcon
             library="Octicons"
             name="home-fill"
-            color={color}
             focused={isFocused}
           />
         );
