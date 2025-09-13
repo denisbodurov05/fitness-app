@@ -3,6 +3,42 @@ export enum ThemeMode {
   DARK = "dark",
 }
 
+export type FontWeight =
+  | "300"
+  | "400"
+  | "500"
+  | "600"
+  | "700"
+  | "normal"
+  | "bold";
+
+export interface TypographyStyle {
+  fontFamily?: string;
+  fontWeight?: FontWeight;
+  fontSize?: number;
+  lineHeight?: number;
+  letterSpacing?: number;
+}
+
+export interface Typography {
+  fontFamily: string;
+  h1: TypographyStyle;
+  h2: TypographyStyle;
+  h3: TypographyStyle;
+  h4: TypographyStyle;
+  h5: TypographyStyle;
+  h6: TypographyStyle;
+  subtitle1: TypographyStyle;
+  subtitle2: TypographyStyle;
+  body1: TypographyStyle;
+  body2: TypographyStyle;
+  button: TypographyStyle;
+  caption: TypographyStyle;
+  overline: TypographyStyle;
+}
+
+
+
 export interface PrimaryColorPalette {
   lighter: string;
   100: string;
@@ -64,4 +100,5 @@ export interface PaletteThemeProps extends BasePaletteProps {
 export interface Theme {
   mode: ThemeMode;
   palette: PaletteThemeProps;
+  typography: Typography;
 }
