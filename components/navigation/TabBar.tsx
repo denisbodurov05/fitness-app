@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     marginHorizontal: "5%",
     width: "90%",
     height: 70,
-    elevation: 0.5,
+    elevation: 1,
     paddingHorizontal: 8,
     borderRadius: 30,
     flexDirection: "row",

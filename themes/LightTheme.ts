@@ -17,8 +17,8 @@ export default function LightTheme(): PaletteThemeProps {
   ];
   const secondaryColors = [
     "#F8F9FA",
-    "#F8F9FA",
     "#F3F5F7",
+    "#F1F3F5",
     "#DBE0E5",
     "#BEC8D0",
     "#8996A4",
