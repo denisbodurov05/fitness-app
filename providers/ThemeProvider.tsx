@@ -1,11 +1,10 @@
 import { useColorScheme } from "@/hooks/useColorScheme";
-import { DarkTheme, LightTheme } from "@/themes";
+import { createPalette } from "@/themes/palette";
 import { Theme, ThemeMode } from "@/types/theme";
 import React, { createContext, ReactNode, useContext } from "react";
 
 interface ThemeContextType {
   theme: Theme;
-  mode: ThemeMode;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -17,17 +16,15 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const colorScheme = useColorScheme();
   const mode = colorScheme === "dark" ? ThemeMode.DARK : ThemeMode.LIGHT;
-
-  const paletteTheme = mode === ThemeMode.DARK ? DarkTheme() : LightTheme();
+  const palette = createPalette(mode);
 
   const theme: Theme = {
-    ...paletteTheme,
+    ...palette,
     mode,
   };
 
   const value = {
     theme,
-    mode,
   };
 
   return (

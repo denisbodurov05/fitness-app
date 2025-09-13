@@ -1,36 +1,34 @@
-import { PaletteThemeProps } from "@/types/theme";
+import { BasePaletteProps } from "@/types/theme";
 
-export default function DarkTheme(): PaletteThemeProps {
-  const contrastText = "#fff";
-
+export default function LightTheme(): BasePaletteProps {
   const primaryColors = [
-    "#1c2628",
-    "#1d3539",
-    "#22454a",
-    "#23595f",
-    "#26737c",
-    "#288d99",
-    "#47a6ad",
-    "#6dbec0",
-    "#96d0d0",
-    "#c5dfde",
+    "#e1f0ef",
+    "#c8e3e2",
+    "#9ad6d6",
+    "#71c6c9",
+    "#4bb5bd",
+    "#2aa1af",
+    "#1a7b8a",
+    "#0e5563",
+    "#06323d",
+    "#021217",
   ];
   const secondaryColors = [
-    "#131920",
-    "#1D2630",
-    "#3E4853",
-    "#5B6B79",
-    "#8996A4",
-    "#BEC8D0",
-    "#DBE0E5",
+    "#F8F9FA",
     "#F3F5F7",
-    "#F8F9FA",
-    "#F8F9FA",
+    "#F1F3F5",
+    "#DBE0E5",
+    "#BEC8D0",
+    "#8996A4",
+    "#5B6B79",
+    "#3E4853",
+    "#1D2630",
+    "#131920",
   ];
-  const errorColors = ["#321d1d", "#7d2e28", "#d13c31", "#e66859", "#f8baaf"];
-  const warningColors = ["#342c1a", "#836611", "#dda705", "#e9bf28", "#f8e577"];
-  const infoColors = ["#1a2628", "#11595f", "#058e98", "#1ea6aa", "#64cfcb"];
-  const successColors = ["#1a2721", "#115c36", "#05934c", "#1da65d", "#61ca8b"];
+  const errorColors = ["#FDE8E7", "#F25E52", "#F04134", "#EE3B2F", "#E92A21"];
+  const warningColors = ["#FFF7E0", "#FFC926", "#FFBF00", "#FFB900", "#FFA900"];
+  const infoColors = ["#E0F4F5", "#26B0BA", "#00A2AE", "#009AA7", "#008694"];
+  const successColors = ["#E0F5EA", "#26B56E", "#00A854", "#00A04D", "#008D3A"];
 
   return {
     primary: {
@@ -44,7 +42,6 @@ export default function DarkTheme(): PaletteThemeProps {
       700: primaryColors[7],
       darker: primaryColors[8],
       900: primaryColors[9],
-      contrastText,
     },
     secondary: {
       lighter: secondaryColors[0],
@@ -57,7 +54,6 @@ export default function DarkTheme(): PaletteThemeProps {
       dark: secondaryColors[7],
       800: secondaryColors[8],
       darker: secondaryColors[9],
-      contrastText,
     },
     error: {
       lighter: errorColors[0],
@@ -65,7 +61,6 @@ export default function DarkTheme(): PaletteThemeProps {
       main: errorColors[2],
       dark: errorColors[3],
       darker: errorColors[4],
-      contrastText,
     },
     warning: {
       lighter: warningColors[0],
@@ -73,7 +68,6 @@ export default function DarkTheme(): PaletteThemeProps {
       main: warningColors[2],
       dark: warningColors[3],
       darker: warningColors[4],
-      contrastText: secondaryColors[5],
     },
     info: {
       lighter: infoColors[0],
@@ -81,7 +75,6 @@ export default function DarkTheme(): PaletteThemeProps {
       main: infoColors[2],
       dark: infoColors[3],
       darker: infoColors[4],
-      contrastText,
     },
     success: {
       lighter: successColors[0],
@@ -89,7 +82,6 @@ export default function DarkTheme(): PaletteThemeProps {
       main: successColors[2],
       dark: successColors[3],
       darker: successColors[4],
-      contrastText,
     },
   };
 }

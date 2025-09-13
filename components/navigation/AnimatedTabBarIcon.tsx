@@ -49,7 +49,7 @@ export default function AnimatedTabBarIcon<T extends IconLibrary>({
     }
   }, [focused]);
   const animatedBackgroundStyle = useAnimatedStyle(() => {
-    const backgroundColor = theme.primary.main;
+    const backgroundColor = theme.palette.primary.main;
     const scaleX = interpolate(scale.value, [0, 1], [0, 1.3]);
     const scaleY = interpolate(scale.value, [0, 1], [0, 1.2]);
 
@@ -106,7 +106,7 @@ export default function AnimatedTabBarIcon<T extends IconLibrary>({
             library={library}
             name={name}
             size={28}
-            color={focused ? theme.primary.main : color}
+            color={focused ? theme.palette.primary.main : color}
           />
         </Animated.View>
       </View>

@@ -17,7 +17,9 @@ const TabBarButton = ({
   routeName,
 }: TabBarButtonProps) => {
   const { theme } = useTheme();
-  const color = isFocused ? theme.primary.main : theme.secondary[400];
+  const color = isFocused
+    ? theme.palette.primary.main
+    : theme.palette.secondary[400];
 
   const renderIcon = () => {
     switch (routeName) {

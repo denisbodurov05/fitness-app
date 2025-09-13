@@ -18,8 +18,8 @@ export function useThemeColor(
   props: { light?: string; dark?: string },
   colorName: "text" | "background"
 ) {
-  const { theme, mode } = useTheme();
-  const colorFromProps = props[mode];
+  const { theme } = useTheme();
+  const colorFromProps = props[theme.mode];
 
   if (colorFromProps) {
     return colorFromProps;
@@ -27,11 +27,11 @@ export function useThemeColor(
     // Map the old color names to new theme structure
     switch (colorName) {
       case "text":
-        return theme.secondary.darker;
+        return theme.palette.secondary.darker;
       case "background":
-        return theme.secondary.lighter;
+        return theme.palette.secondary.lighter;
       default:
-        return theme.secondary.darker;
+        return theme.palette.secondary.darker;
     }
   }
 }

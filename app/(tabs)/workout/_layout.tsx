@@ -8,9 +8,9 @@ export default function WorkoutLayout() {
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: theme.secondary.lighter,
+          backgroundColor: theme.palette.secondary.lighter,
         },
-        headerTintColor: theme.secondary.darker,
+        headerTintColor: theme.palette.secondary.darker,
         headerTitleStyle: {
           fontWeight: "bold",
         },

@@ -8,7 +8,12 @@ const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
   const { theme } = useTheme();
 
   return (
-    <View style={[styles.tabbar, { backgroundColor: theme.secondary.lighter }]}>
+    <View
+      style={[
+        styles.tabbar,
+        { backgroundColor: theme.palette.secondary.lighter },
+      ]}
+    >
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
 

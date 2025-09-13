@@ -3,7 +3,7 @@ export enum ThemeMode {
   DARK = "dark",
 }
 
-export interface ColorPalette {
+export interface PrimaryColorPalette {
   lighter: string;
   100: string;
   200: string;
@@ -14,7 +14,6 @@ export interface ColorPalette {
   700: string;
   darker: string;
   900: string;
-  contrastText: string;
 }
 
 export interface SecondaryColorPalette {
@@ -28,7 +27,6 @@ export interface SecondaryColorPalette {
   dark: string;
   800: string;
   darker: string;
-  contrastText: string;
 }
 
 export interface SimpleColorPalette {
@@ -37,11 +35,20 @@ export interface SimpleColorPalette {
   main: string;
   dark: string;
   darker: string;
-  contrastText: string;
 }
 
-export interface PaletteThemeProps {
-  primary: ColorPalette;
+export interface TextPalette {
+  primary: string;
+  secondary: string;
+  disabled: string;
+}
+
+export interface BackgroundPalette {
+  default: string;
+}
+
+export interface BasePaletteProps {
+  primary: PrimaryColorPalette;
   secondary: SecondaryColorPalette;
   error: SimpleColorPalette;
   warning: SimpleColorPalette;
@@ -49,6 +56,12 @@ export interface PaletteThemeProps {
   success: SimpleColorPalette;
 }
 
-export interface Theme extends PaletteThemeProps {
+export interface PaletteThemeProps extends BasePaletteProps {
+  text: TextPalette;
+  background: BackgroundPalette;
+}
+
+export interface Theme {
   mode: ThemeMode;
+  palette: PaletteThemeProps;
 }
