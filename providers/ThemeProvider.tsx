@@ -1,8 +1,7 @@
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { DarkTheme, LightTheme } from "@/themes";
 import { Theme, ThemeMode } from "@/types/theme";
 import React, { createContext, ReactNode, useContext } from "react";
-import darkTheme from "../themes/DarkTheme";
-import lightTheme from "../themes/LightTheme";
 
 interface ThemeContextType {
   theme: Theme;
@@ -19,7 +18,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const colorScheme = useColorScheme();
   const mode = colorScheme === "dark" ? ThemeMode.DARK : ThemeMode.LIGHT;
 
-  const paletteTheme = mode === ThemeMode.DARK ? darkTheme() : lightTheme();
+  const paletteTheme = mode === ThemeMode.DARK ? DarkTheme() : LightTheme();
 
   const theme: Theme = {
     ...paletteTheme,

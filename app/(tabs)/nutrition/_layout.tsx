@@ -1,25 +1,25 @@
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-import { Stack } from 'expo-router';
+import { useTheme } from "@/providers";
+import { Stack } from "expo-router";
 
 export default function NutritionLayout() {
-  const colorScheme = useColorScheme();
+  const { theme } = useTheme();
 
   return (
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: Colors[colorScheme ?? 'light'].background,
+          backgroundColor: theme.secondary.lighter,
         },
-        headerTintColor: Colors[colorScheme ?? 'light'].text,
+        headerTintColor: theme.secondary.darker,
         headerTitleStyle: {
-          fontWeight: 'bold',
+          fontWeight: "bold",
         },
-      }}>
-      <Stack.Screen 
-        name="index" 
-        options={{ 
-          title: 'Nutrition',
+      }}
+    >
+      <Stack.Screen
+        name="index"
+        options={{
+          title: "Nutrition",
           headerShown: true,
         }}
       />

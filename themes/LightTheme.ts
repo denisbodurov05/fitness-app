@@ -9,7 +9,7 @@ export default function LightTheme(): PaletteThemeProps {
     "#9ad6d6",
     "#71c6c9",
     "#4bb5bd",
-    "#1a813f",
+    "#2aa1af",
     "#1a7b8a",
     "#0e5563",
     "#06323d",

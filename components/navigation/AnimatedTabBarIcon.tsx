@@ -1,6 +1,5 @@
 import Icon, { IconLibrary, IconName } from "@/components/Icon";
-import Colors from "@/constants/Colors";
-import { useColorScheme } from "@/hooks/useColorScheme";
+import { useTheme } from "@/providers";
 import React, { useEffect } from "react";
 import { View } from "react-native";
 import Animated, {
@@ -24,7 +23,7 @@ export default function AnimatedTabBarIcon<T extends IconLibrary>({
   color,
   focused,
 }: AnimatedTabBarIconProps<T>) {
-  const colorScheme = useColorScheme();
+  const { theme } = useTheme();
   const scale = useSharedValue(0);
   const iconScale = useSharedValue(1);
 
@@ -49,15 +48,14 @@ export default function AnimatedTabBarIcon<T extends IconLibrary>({
       });
     }
   }, [focused]);
-
   const animatedBackgroundStyle = useAnimatedStyle(() => {
-    const backgroundColor = Colors[colorScheme ?? "light"].tint; // TODO change this color when theme is implemented
+    const backgroundColor = theme.primary.main;
     const scaleX = interpolate(scale.value, [0, 1], [0, 1.3]);
     const scaleY = interpolate(scale.value, [0, 1], [0, 1.2]);
 
     return {
       transform: [{ scaleX }, { scaleY }],
-      backgroundColor: backgroundColor + "25", // TODO change this color when theme is implemented
+      backgroundColor: backgroundColor + "25",
       opacity: interpolate(scale.value, [0, 1], [0, 1]),
     };
   });
@@ -108,7 +106,7 @@ export default function AnimatedTabBarIcon<T extends IconLibrary>({
             library={library}
             name={name}
             size={28}
-            color={focused ? Colors[colorScheme ?? "light"].tint : color}
+            color={focused ? theme.primary.main : color}
           />
         </Animated.View>
       </View>
