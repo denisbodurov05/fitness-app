@@ -55,8 +55,8 @@ export default function AnimatedTabBarIcon<T extends IconLibrary>({
 
     return {
       transform: [{ scaleX }, { scaleY }],
-      backgroundColor: backgroundColor + "25",
-      opacity: interpolate(scale.value, [0, 1], [0, 1]),
+      backgroundColor: backgroundColor,
+      opacity: interpolate(scale.value, [0, 1], [0, 0.15]),
     };
   });
 
