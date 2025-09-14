@@ -1,9 +1,17 @@
+import HomeHeader from "@/components/navigation/HomeHeader";
+import TabBar from "@/components/navigation/TabBar";
 import { Tabs } from "expo-router";
 import React from "react";
 
-import TabBar from "@/components/navigation/TabBar";
-
 export default function TabLayout() {
+  const handleAvatarPress = () => {
+    console.log("Avatar pressed");
+  };
+
+  const handleNotificationPress = () => {
+    console.log("Notifications pressed");
+  };
+
   return (
     <Tabs
       tabBar={(props) => <TabBar {...props} />}
@@ -15,6 +23,19 @@ export default function TabLayout() {
         name="home"
         options={{
           title: "Home",
+          headerShown: true,
+          headerTransparent: true,
+          headerStyle: {
+            backgroundColor: "transparent",
+          },
+          header: () => (
+            <HomeHeader
+              userName="John Doe"
+              onAvatarPress={handleAvatarPress}
+              onNotificationPress={handleNotificationPress}
+              hasUnreadNotifications={true}
+            />
+          ),
         }}
       />
       <Tabs.Screen

@@ -3,7 +3,41 @@ export enum ThemeMode {
   DARK = "dark",
 }
 
-export interface ColorPalette {
+export type FontWeight =
+  | "300"
+  | "400"
+  | "500"
+  | "600"
+  | "700"
+  | "normal"
+  | "bold";
+
+export interface TypographyStyle {
+  fontFamily?: string;
+  fontWeight?: FontWeight;
+  fontSize?: number;
+  lineHeight?: number;
+  letterSpacing?: number;
+}
+
+export interface Typography {
+  fontFamily: string;
+  h1: TypographyStyle;
+  h2: TypographyStyle;
+  h3: TypographyStyle;
+  h4: TypographyStyle;
+  h5: TypographyStyle;
+  h6: TypographyStyle;
+  subtitle1: TypographyStyle;
+  subtitle2: TypographyStyle;
+  body1: TypographyStyle;
+  body2: TypographyStyle;
+  button: TypographyStyle;
+  caption: TypographyStyle;
+  overline: TypographyStyle;
+}
+
+export interface PrimaryColorPalette {
   lighter: string;
   100: string;
   200: string;
@@ -14,7 +48,6 @@ export interface ColorPalette {
   700: string;
   darker: string;
   900: string;
-  contrastText: string;
 }
 
 export interface SecondaryColorPalette {
@@ -28,7 +61,6 @@ export interface SecondaryColorPalette {
   dark: string;
   800: string;
   darker: string;
-  contrastText: string;
 }
 
 export interface SimpleColorPalette {
@@ -37,11 +69,26 @@ export interface SimpleColorPalette {
   main: string;
   dark: string;
   darker: string;
-  contrastText: string;
 }
 
-export interface PaletteThemeProps {
-  primary: ColorPalette;
+export interface TextPalette {
+  primary: string;
+  secondary: string;
+  disabled: string;
+}
+
+export interface CommonPalette {
+  black: string;
+  white: string;
+  purple: string;
+}
+
+export interface BackgroundPalette {
+  default: string;
+}
+
+export interface BasePaletteProps {
+  primary: PrimaryColorPalette;
   secondary: SecondaryColorPalette;
   error: SimpleColorPalette;
   warning: SimpleColorPalette;
@@ -49,6 +96,14 @@ export interface PaletteThemeProps {
   success: SimpleColorPalette;
 }
 
-export interface Theme extends PaletteThemeProps {
+export interface Palette extends BasePaletteProps {
+  text: TextPalette;
+  background: BackgroundPalette;
+  common: CommonPalette;
+}
+
+export interface Theme {
   mode: ThemeMode;
+  palette: Palette;
+  typography: Typography;
 }

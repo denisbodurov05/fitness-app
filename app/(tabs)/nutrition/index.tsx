@@ -6,7 +6,10 @@ export default function NutritionScreen() {
 
   return (
     <ScrollView
-      style={[styles.container, { backgroundColor: theme.secondary[100] }]}
+      style={[
+        styles.container,
+        { backgroundColor: theme.palette.background.default },
+      ]}
     ></ScrollView>
   );
 }

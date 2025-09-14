@@ -1,11 +1,11 @@
 import { useColorScheme } from "@/hooks/useColorScheme";
-import { DarkTheme, LightTheme } from "@/themes";
-import { Theme, ThemeMode } from "@/types/theme";
-import React, { createContext, ReactNode, useContext } from "react";
+import { createPalette } from "@/themes/palette";
+import { createTypography } from "@/themes/typography";
+import { Palette, Theme, ThemeMode, Typography } from "@/types/theme";
+import React, { createContext, ReactNode, useContext, useMemo } from "react";
 
 interface ThemeContextType {
   theme: Theme;
-  mode: ThemeMode;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -14,24 +14,25 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
+// TODO Create ConfigProvider for i18n and other global settings
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const colorScheme = useColorScheme();
   const mode = colorScheme === "dark" ? ThemeMode.DARK : ThemeMode.LIGHT;
 
-  const paletteTheme = mode === ThemeMode.DARK ? DarkTheme() : LightTheme();
+  const palette = useMemo<Palette>(() => createPalette(mode), [mode]);
+  const typography = useMemo<Typography>(() => createTypography(mode), [mode]);
 
-  const theme: Theme = {
-    ...paletteTheme,
-    mode,
-  };
-
-  const value = {
-    theme,
-    mode,
-  };
+  const theme: Theme = useMemo(
+    () => ({
+      mode,
+      palette,
+      typography,
+    }),
+    [mode, palette, typography]
+  );
 
   return (
-    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>
   );
 };
 

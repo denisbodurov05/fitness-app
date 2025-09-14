@@ -13,14 +13,12 @@ import Animated, {
 interface AnimatedTabBarIconProps<T extends IconLibrary> {
   library: T;
   name: IconName<T>;
-  color: string;
   focused: boolean;
 }
 
 export default function AnimatedTabBarIcon<T extends IconLibrary>({
   library,
   name,
-  color,
   focused,
 }: AnimatedTabBarIconProps<T>) {
   const { theme } = useTheme();
@@ -49,7 +47,7 @@ export default function AnimatedTabBarIcon<T extends IconLibrary>({
     }
   }, [focused]);
   const animatedBackgroundStyle = useAnimatedStyle(() => {
-    const backgroundColor = theme.primary.main;
+    const backgroundColor = theme.palette.primary.main;
     const scaleX = interpolate(scale.value, [0, 1], [0, 1.3]);
     const scaleY = interpolate(scale.value, [0, 1], [0, 1.2]);
 
@@ -106,7 +104,11 @@ export default function AnimatedTabBarIcon<T extends IconLibrary>({
             library={library}
             name={name}
             size={28}
-            color={focused ? theme.primary.main : color}
+            color={
+              focused
+                ? theme.palette.primary.main
+                : theme.palette.text.secondary
+            }
           />
         </Animated.View>
       </View>
