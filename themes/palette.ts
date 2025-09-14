@@ -1,8 +1,8 @@
-import { ThemeMode } from "@/types/theme";
+import { Palette, ThemeMode } from "@/types/theme";
 import { alpha } from "./style";
 import Theme from "./theme";
 
-export function createPalette(mode: ThemeMode) {
+export function createPalette(mode: ThemeMode): Palette {
   const paletteColor = Theme(mode);
 
   return {
@@ -26,6 +26,11 @@ export function createPalette(mode: ThemeMode) {
         mode === ThemeMode.LIGHT
           ? paletteColor.secondary[200]
           : paletteColor.secondary[100],
+    },
+    common: {
+      black: "#000000",
+      white: "#FFFFFF",
+      purple: "#9C27B0",
     },
   };
 }

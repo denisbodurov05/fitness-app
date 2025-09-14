@@ -1,9 +1,11 @@
 import Avatar from "@/components/Avatar";
 import Icon from "@/components/Icon";
+import Typography from "@/components/themed/Typography";
 import { useTheme } from "@/providers";
 import React from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import Chip from "../Chip";
 
 export interface AppHeaderProps {
   /**
@@ -31,7 +33,7 @@ export interface AppHeaderProps {
 /**
  * Consistent app header with user avatar and notifications
  */
-export default function AppHeader({
+export default function HomeHeader({
   userAvatarUri,
   userName = "User",
   onAvatarPress,
@@ -46,14 +48,34 @@ export default function AppHeader({
       style={[
         styles.container,
         {
-          backgroundColor: theme.palette.secondary.lighter,
+          backgroundColor: theme.palette.background.default,
           paddingTop: insets.top + 12,
         },
       ]}
     >
-      {/* Left side - User Avatar */}
+      {/* Left side - User Avatar and Name */}
       <Pressable onPress={onAvatarPress} style={styles.avatarContainer}>
-        <Avatar uri={userAvatarUri} name={userName} size={36} />
+        <View style={styles.userSection}>
+          <Avatar uri={userAvatarUri} name={userName} size={36} />
+          <View>
+            <View style={styles.userTitle}>
+              <Typography
+                variant="body1"
+                style={styles.userName}
+                color={theme.palette.text.primary}
+              >
+                {userName}
+              </Typography>
+            </View>
+            <View style={styles.userSubtitle}>
+              <Chip
+                label="Level 12 • 2,340 XP"
+                size="small"
+                variant="success"
+              />
+            </View>
+          </View>
+        </View>
       </Pressable>
 
       {/* Right side - Notification Bell */}
@@ -89,12 +111,31 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 16,
     paddingBottom: 12,
-    elevation: 1,
-    borderBottomRightRadius: 20,
-    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 15,
+    borderBottomLeftRadius: 15,
   },
   avatarContainer: {
     padding: 4,
+  },
+  userSection: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+  },
+  userName: {
+    fontWeight: "bold",
+  },
+  userTitle: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 5,
+  },
+  userSubtitle: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    gap: 6,
+    marginTop: 2,
   },
   notificationContainer: {
     padding: 8,

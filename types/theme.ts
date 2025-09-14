@@ -77,6 +77,12 @@ export interface TextPalette {
   disabled: string;
 }
 
+export interface CommonPalette {
+  black: string;
+  white: string;
+  purple: string;
+}
+
 export interface BackgroundPalette {
   default: string;
 }
@@ -90,13 +96,14 @@ export interface BasePaletteProps {
   success: SimpleColorPalette;
 }
 
-export interface PaletteThemeProps extends BasePaletteProps {
+export interface Palette extends BasePaletteProps {
   text: TextPalette;
   background: BackgroundPalette;
+  common: CommonPalette;
 }
 
 export interface Theme {
   mode: ThemeMode;
-  palette: PaletteThemeProps;
+  palette: Palette;
   typography: Typography;
 }

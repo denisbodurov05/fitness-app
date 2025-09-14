@@ -1,7 +1,7 @@
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { createPalette } from "@/themes/palette";
 import { createTypography } from "@/themes/typography";
-import { Theme, ThemeMode } from "@/types/theme";
+import { Palette, Theme, ThemeMode, Typography } from "@/types/theme";
 import React, { createContext, ReactNode, useContext, useMemo } from "react";
 
 interface ThemeContextType {
@@ -19,8 +19,8 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const colorScheme = useColorScheme();
   const mode = colorScheme === "dark" ? ThemeMode.DARK : ThemeMode.LIGHT;
 
-  const palette = useMemo(() => createPalette(mode), [mode]);
-  const typography = useMemo(() => createTypography(mode), [mode]);
+  const palette = useMemo<Palette>(() => createPalette(mode), [mode]);
+  const typography = useMemo<Typography>(() => createTypography(mode), [mode]);
 
   const theme: Theme = useMemo(
     () => ({
