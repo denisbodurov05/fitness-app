@@ -1,16 +1,14 @@
 import { useTheme } from "@/providers";
 import { ScrollView, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function NutritionScreen() {
   const theme = useTheme();
 
   return (
-    <ScrollView
-      style={[
-        styles.container,
-        { backgroundColor: theme.palette.background.default },
-      ]}
-    ></ScrollView>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView style={[styles.container]}></ScrollView>
+    </SafeAreaView>
   );
 }
 
