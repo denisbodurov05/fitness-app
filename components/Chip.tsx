@@ -36,7 +36,7 @@ export default function Chip({
   style,
   textStyle,
 }: ChipProps) {
-  const { theme } = useTheme();
+  const theme = useTheme();
 
   const getChipColors = () => {
     switch (variant) {

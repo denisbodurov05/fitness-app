@@ -5,7 +5,7 @@ import { StyleSheet, View } from "react-native";
 import TabBarButton from "./TabBarButton";
 
 const TabBar = ({ state, descriptors, navigation }: BottomTabBarProps) => {
-  const { theme } = useTheme();
+  const theme = useTheme();
 
   return (
     <View

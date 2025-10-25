@@ -11,7 +11,7 @@ export default function Typography({
   children,
   ...props
 }: TypographyComponentProps) {
-  const { theme } = useTheme();
+  const theme = useTheme();
 
   const variantStyle = theme.typography[variant];
   const textColor = color || theme.palette.text.primary;

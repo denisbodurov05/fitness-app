@@ -1,7 +1,17 @@
+import { useTheme } from "@/providers";
 import { ScrollView, StyleSheet } from "react-native";
 
 export default function WorkoutScreen() {
-  return <ScrollView style={styles.container}></ScrollView>;
+  const theme = useTheme();
+
+  return (
+    <ScrollView
+      style={[
+        styles.container,
+        { backgroundColor: theme.palette.background.default },
+      ]}
+    ></ScrollView>
+  );
 }
 
 const styles = StyleSheet.create({

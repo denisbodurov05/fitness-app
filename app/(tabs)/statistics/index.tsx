@@ -2,7 +2,7 @@ import { useTheme } from "@/providers";
 import { ScrollView, StyleSheet } from "react-native";
 
 export default function StatisticsScreen() {
-  const { theme } = useTheme();
+  const theme = useTheme();
 
   return (
     <ScrollView

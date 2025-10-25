@@ -21,7 +21,7 @@ export default function AnimatedTabBarIcon<T extends IconLibrary>({
   name,
   focused,
 }: AnimatedTabBarIconProps<T>) {
-  const { theme } = useTheme();
+  const theme = useTheme();
   const scale = useSharedValue(0);
   const iconScale = useSharedValue(1);
 
