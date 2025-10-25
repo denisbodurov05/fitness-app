@@ -40,7 +40,7 @@ export default function HomeHeader({
   onNotificationPress,
   hasUnreadNotifications = false,
 }: AppHeaderProps) {
-  const { theme } = useTheme();
+  const theme = useTheme();
   const insets = useSafeAreaInsets();
 
   return (

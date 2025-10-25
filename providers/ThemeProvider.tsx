@@ -4,9 +4,7 @@ import { createTypography } from "@/themes/typography";
 import { Palette, Theme, ThemeMode, Typography } from "@/types/theme";
 import React, { createContext, ReactNode, useContext, useMemo } from "react";
 
-interface ThemeContextType {
-  theme: Theme;
-}
+type ThemeContextType = Theme;
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
@@ -32,7 +30,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   );
 
   return (
-    <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
   );
 };
 

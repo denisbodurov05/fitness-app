@@ -1,7 +1,6 @@
 import HomeHeader from "@/components/navigation/HomeHeader";
 import TabBar from "@/components/navigation/TabBar";
 import { Tabs } from "expo-router";
-import React from "react";
 
 export default function TabLayout() {
   const handleAvatarPress = () => {

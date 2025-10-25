@@ -1,5 +1,5 @@
 import { useTheme } from "@/providers";
-import React, { memo, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 import { Image, StyleProp, Text, View, ViewStyle } from "react-native";
 
 export interface AvatarProps {
@@ -37,11 +37,11 @@ export interface AvatarProps {
  */
 const Avatar = memo<AvatarProps>(
   ({ uri, size = 50, alt, name, borderRadius, style }) => {
-    const { theme } = useTheme();
+    const theme = useTheme();
     const [imageError, setImageError] = useState(false);
 
     // Generate initials from name if provided
-    const initials = React.useMemo(() => {
+    const initials = useMemo(() => {
       if (alt) return alt;
       if (!name) return "?";
 
@@ -79,7 +79,7 @@ const Avatar = memo<AvatarProps>(
     };
 
     // Reset error state when URI changes
-    React.useEffect(() => {
+    useEffect(() => {
       setImageError(false);
     }, [uri]);
 

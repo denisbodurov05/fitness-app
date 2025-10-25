@@ -2,21 +2,21 @@ import { BasePaletteProps } from "@/types/theme";
 
 export default function LightTheme(): BasePaletteProps {
   const primaryColors = [
-    "#e1f0ef",
-    "#c8e3e2",
-    "#9ad6d6",
-    "#71c6c9",
-    "#4bb5bd",
-    "#2aa1af",
-    "#1a7b8a",
-    "#0e5563",
-    "#06323d",
-    "#021217",
+    "#EEEDFC",
+    "#D5D1F8",
+    "#B9B2F3",
+    "#9C93EE",
+    "#877CEA",
+    "#7265E6",
+    "#6A5DE3",
+    "#5F53DF",
+    "#5549DB",
+    "#4237D5",
   ];
   const secondaryColors = [
     "#F8F9FA",
+    "#F8F9FA",
     "#F3F5F7",
-    "#F1F3F5",
     "#DBE0E5",
     "#BEC8D0",
     "#8996A4",

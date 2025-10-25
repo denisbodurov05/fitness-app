@@ -2,16 +2,16 @@ import { BasePaletteProps } from "@/types/theme";
 
 export default function DarkTheme(): BasePaletteProps {
   const primaryColors = [
-    "#1c2628",
-    "#1d3539",
-    "#22454a",
-    "#23595f",
-    "#26737c",
-    "#288d99",
-    "#47a6ad",
-    "#6dbec0",
-    "#96d0d0",
-    "#c5dfde",
+    "#222130",
+    "#2b2946",
+    "#37335a",
+    "#443e78",
+    "#554ca0",
+    "#655ac8",
+    "#9186dd",
+    "#5F53DF",
+    "#c3baf4",
+    "#efecfb",
   ];
   const secondaryColors = [
     "#131920",
